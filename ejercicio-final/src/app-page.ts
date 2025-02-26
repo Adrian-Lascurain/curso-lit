@@ -22,12 +22,10 @@ export class AppPage extends LitElement{
 
     beforeRender(){
         let isLoged = localStorage.getItem("isLoged") ?? "false";
-        if(isLoged === "false"){
+        if(isLoged === "true"){
+            this.userName = localStorage.getItem("userName") ?? "";
+        }else{
             window.location.href = "./src/pages/login.html";
-        } else if(isLoged === "true"){
-            if(localStorage.getItem("userName") != null){
-                this.userName = localStorage.getItem("userName") ?? "";
-            }  
         }
     }
 
